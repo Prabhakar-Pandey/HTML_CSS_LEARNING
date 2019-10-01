@@ -1,0 +1,99 @@
+.parent{
+    background: #ccc;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+}
+.child{
+    background: red;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 50%;
+    left:50%;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.child-1{
+    background: red;
+    width: 50%;
+    height: 100%;
+}
+.child-2{
+    background: green;
+    width: 50%;
+    height: 100%;
+}
+
+body{
+    position: relative;
+}
+
+#toolTip{
+    width: 170px;
+    background: #ccc;
+    border: 1px solid;
+    padding: 10px;
+    align-content: center;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    position: absolute;
+    display: none;
+}
+
+#toolTip p{
+    align-content: center;
+}
+
+.pointer-top{
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    position: absolute;
+    right: 50%;
+    top: -18px;
+    transform: rotate(45deg) translate(10px, 0px);
+    border-left: 1px solid;
+    border-top: 1px solid;
+    z-index: 0;
+}
+
+.pointer-left{
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    position: absolute;
+    left: -19px;
+    top: 26%;
+    transform: rotate(45deg) translate(10px, 0px);
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    z-index: 0;
+}
+.pointer-right{
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    position: absolute;
+    right: -4px;
+    top: 26%;
+    transform: rotate(45deg) translate(10px, 0px);
+    border-right: 1px solid;
+    border-top: 1px solid;
+    z-index: 0;
+}
+.pointer-bottom{
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    position: absolute;
+    right: 50%;
+    bottom: -4px;
+    transform: rotate(45deg) translate(10px, 0px);
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    z-index: 0;
+}
