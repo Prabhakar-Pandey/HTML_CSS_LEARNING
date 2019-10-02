@@ -15,6 +15,14 @@ var SNLG = function () {
             {
                 start: 11,
                 end: 26
+            },
+            {
+                start: 3,
+                end: 22
+            },
+            {
+                start: 20,
+                end: 29
             }
         ],
         snakes: [{
@@ -22,9 +30,18 @@ var SNLG = function () {
             end: 4
         },
         {
+            start: 11,
+            end: 7
+        },
+        {
+            start: 21,
+            end: 9
+        },
+        {
             start: 27,
             end: 1
-        }]
+        }
+        ]
     }
 
     var players =
@@ -121,6 +138,10 @@ function getRandomColor() {
 
 
   // this function will use to make move of the player and is global can be called from browser
+
+
+
+  // move with player name and dice value from console, if the player exits it will move the player to its specified position, if player is not there then it will create new player and assign the position passed to it
 function move(playerName,moves){
     if(!obj[playerName]){
         obj[playerName] = new nodes(getRandomColor(),playerName);
