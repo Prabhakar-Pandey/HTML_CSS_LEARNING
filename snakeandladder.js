@@ -44,23 +44,12 @@ var SNLG = function () {
         ]
     }
 
-    var players =
-        {
-            p1: {
-                name: "p1",
-                currentPosition: 1
-            },
-            p2: {
-                name: "p2",
-                currentPosition: 1
-            }
-        }
 
 
     return {
         // this method will return you next move position by checking the snake and ladder object
         moveNext(moves, player, currentPosition) {
-            var { currentPosition } = {currentPosition} || players[player];
+            var { currentPosition } = {currentPosition};
             let nextposition = currentPosition + moves;
 
             let ladder = config.ladders.find((item) => item.start === nextposition);
@@ -71,10 +60,6 @@ var SNLG = function () {
             }
             if (snake) {
                 nextposition = snake.end
-            }
-            players[player]={
-                currentPosition : nextposition,
-                name:player
             }
             
             return nextposition;
@@ -89,7 +74,7 @@ var SNLG = function () {
 
 var nodes = function (color,name) {
     this.name = name;
-    this.currentPosition = 1;
+    this.currentPosition = 0;
     this.color = color;
     this.html = `<div class="player" id="${this.name}" style="background-color:${color}">${this.name}</div>`
     this.set = function (value) {
@@ -104,13 +89,24 @@ var nodes = function (color,name) {
     }
 }
 
+var UILayout = {
+    1:[25,26,27,28,29,30],
+    2:[24,23,22,21,20,19],
+    3:[13,14,15,16,17,18],
+    4:[12,11,10,9,8,7],
+    5:[1,2,3,4,5,6]
+}
+
 // on domcontentloaded we are creating the bord first with empty cells and we are giving id as number to each cells
 function createUI(length, breaks) {
     var html = "<div class='bord'>";
 
-    for (var j = length; j > 0; j--) {
-        html += `<div class="cells" id=${j}></div>`;
-    }
+    Object.keys(UILayout).map((row)=>{
+        let arr = UILayout[row].reverse();
+        arr.forEach((item)=>{
+            html += `<div class="cells" id=${item}></div>`;
+        })
+    })
 
     html += "</div>";
     var root = document.getElementById("root");
@@ -147,14 +143,6 @@ function move(playerName,moves){
         obj[playerName] = new nodes(getRandomColor(),playerName);
     }
     obj[playerName].set(SNLG.moveNext(moves,playerName,obj[playerName].currentPosition));
-
-    return;
-    if(playerName=="P1"){
-        player1.set(SNLG.moveNext(moves,"player1",player1.currentPosition));
-    }
-    if(playerName=="P2"){
-        player2.set(SNLG.moveNext(moves,"player2",player2.currentPosition));
-    }
 }
 
 

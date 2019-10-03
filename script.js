@@ -17,6 +17,10 @@ function exicute(){
 }
 window.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
+
+   
+
+
     exicute();
     var btn = document.getElementsByTagName('input');
     var toolTip = document.getElementById('toolTip');
